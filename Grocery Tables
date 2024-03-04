@@ -1,0 +1,26 @@
+USE World;
+CREATE TABLE Grocery1 (Product_Name TEXT, Category_ID INTEGER, Category TEXT);
+INSERT INTO Grocery1 VALUES ("Shampoo", 006, "Health and beauty"), 
+("Bowl", 005, "Home and lifestyle"), ("Potato", 002, "Produce"), 
+("Protein Powder", 001, "Sports and travel"), ("Energy Drink", 001, "Sports and travel"),
+("Light Bulbs", 005, "Home and lifestyle"), ("Baking Powder", 004, "Baking"), 
+("Skimmed Milk", 003, "Dairy"), ("Yogurt", 003, "Dairy"), ("Cake Mix", 004, "Baking"), 
+("Lotion", 006, "Health and beauty"), ("Grapes", 002, "Produce"), 
+("Hand Soap", 006, "Health and beauty"), ("Flour", 004, "Baking"), 
+("Brownie Mix", 004, "Baking"), ("Tomato", 002, "Produce");
+SELECT * FROM Grocery1;
+
+CREATE TABLE Grocery2 
+(Category_ID INTEGER, Category TEXT, Year INTEGER, QUANTITY_PURCHASED INTEGER);
+INSERT INTO Grocery2 VALUES (006, "Health and beauty", 2020, 10070), 
+(005, "Home and lifestyle", 2021, 210), (002, "Produce", 2021, 30130),
+(001, "Sports and travel", 2022, 400), (001, "Sports and travel", 2020, 834),
+(005, "Home and lifestyle", 2022, 900), (004, "Baking", 2020, 5000),
+(003, "Dairy", 2021, 300000), (003, "Dairy", 2020, 98700), (004, "Baking", 2020, 720),
+(006, "Health and beauty", 2020, 100), (002, "Produce", 2020, 59000), 
+(006, "Health and beauty", 2021, 89211), (004, "Baking", 2021, 39091), 
+(004, "Baking", 2021, 2131), (002, "Produce", 2021, 653);
+SELECT * FROM Grocery2;
+
+SELECT Category_ID, Category, Year, SUM(QUANTITY_PURCHASED) AS TotQuantity FROM Grocery2
+GROUP BY Category_ID, Category, Year;
